@@ -1,0 +1,86 @@
+*{
+padding: 0;
+margin: 0;
+}
+button{
+    margin-left: 10rem;
+    margin-top: 2rem;
+    height: 3rem;
+    width: 10rem;
+    border-radius: 2rem;
+}
+.text{
+    font-size: 29px; font-weight: 900;
+}
+
+/* navbar */
+.balackbar{
+    background-color: black;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+.balackbar ul{
+    display: flex;
+gap: 33px;
+}
+ul > li
+{
+    list-style-type: none;
+    padding: 5px;
+}
+
+.navbar-brand img{
+    height: 6rem;
+    width: 17rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.headrow{
+    display: flex;
+    font-size: 17px;
+    gap: 5px;
+}
+.li-2{
+    font-weight: 100;
+    color: rgb(55, 56, 57);
+}
+
+.sidebar {
+    width: 199px; /* Adjust width as needed */
+    background-color: #f4f4f4; /* Light color for the sidebar */
+    border-right: 1px solid #ccc; /* Adding a border for separation */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+ol, ul {
+    padding-left: 0rem;
+}
+.imghsbc{
+    height: 5rem;
+    margin: 4rem 2rem 1rem 16rem
+}
+.hsbccontent{
+    padding: 1rem 1rem 1rem 8rem;
+}
+.form-label{
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .form-control{
+    height: 2.5rem;
+  }
+  button{
+    margin-bottom: 2rem;
+  }
+
+  /* register */
+  .spaceload{
+    padding-top: 11rem;
+    height: 33rem;
+    padding-left: 13rem;
+  }

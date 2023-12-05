@@ -1,0 +1,184 @@
+<!-- nav bar -->
+<div class="container-fluid">
+
+  <div class="balackbar">
+    <ul>
+      <li>personal </li> |
+      <li> Retail Business Banking </li> |
+      <li> Business </li> |
+      <li> Asset Management </li> |
+      <li> Global private Banking </li> |
+    </ul>
+    <ul>
+      <li>
+        <i class="fa-solid fa-earth-oceania"></i>
+        English
+      </li>
+      <li routerLink="/register" style="cursor: pointer;">Register</li>
+      <li routerLink="/" class="btn btn-danger" style="
+      height: 3rem;
+      width: 8rem;">Log In</li>
+    </ul>
+  </div>
+
+
+</div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: white;">
+
+  <div class="container-fluid" style="background-color: white;">
+    <a class="navbar-brand " href="#">
+      <img src="https://www.hsbc.co.in/content/dam/hsbc/in/images/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="Logo"
+        class="d-inline-block align-text-top">
+
+    </a>
+    <div class="headrow">
+
+      <div class="sidebar">
+        <ul>
+          <li class="li-1">Banking</li>
+          <li class="li-2">Cards & Accounts</li>
+        </ul>
+
+      </div>
+      <div class="sidebar">
+        <ul>
+
+          <li class="li-1">Borrowing</li>
+          <li class="li-2">Home & Personal Loans</li>
+        </ul>
+
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li class="li-1">Investing</li>
+          <li class="li-2">Wealth & Insurance</li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li class="li-1">NRI</li>
+          <li class="li-2">NRI services & Transfers</li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li class="li-1">Offers</li>
+          <li class="li-2">Offers &Rewards</li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li class="li-1">Online Banking</li>
+          <li class="li-2">Banking made easy</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</nav>
+<!-- center -->
+
+
+
+<div class="container-fluid" id="backimg">
+  <div class="row">
+    <div class="col-4">
+      <!-- <img src="https://www.centralbanking.com/sites/default/files/styles/landscape_750_463/public/import/IMG/874/331874/hsbc-hq-canary-wharf-day-2015.jpeg?h=b4c96521&itok=iH6Dfn2_" alt=""
+        style="height: 27rem; border-radius: 1rem;"> -->
+    </div>
+    <div class="col-4">
+     
+    </div>
+    <div class="col-4" id="inputhead">
+      <div class="container">
+        <div class="row">
+          <h2 class="text-center" style="color: white;padding-bottom: 2rem;"> Register</h2>
+
+          <form (ngSubmit)="login()" [formGroup]="loginForm">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">ACCOUNT NUMBER</label>
+              <input name="acno" formControlName="acno" type="text" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+              <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" class="text-danger">
+                *Invalid Account number.</div>
+            </div>
+            <div >
+              <label for="inputPassword5" class="form-label">PASSWORD</label>
+              <input name="password" formControlName="password" type="password" id="inputPassword5" class="form-control"
+                aria-describedby="passwordHelpBlock">
+              <div *ngIf="this.loginForm.get('password')?.errors&&this.loginForm.get('password')?.touched"
+                class="text-danger">
+                Your password must be 8-20 characters long, contain letters and numbers, and must not
+                contain spaces,
+                special characters, or emoji.
+              </div>
+            </div>
+            <h4 class="text-danger">{{loginError}}</h4>
+            <button type="submit" class="btn btn-outline-success ">Submit
+              <div *ngIf="loginSuccess" class="spinner-border" style="width: 2rem; height: 2rem;" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+      <div class="register">
+        <div>First Time User ? <span><a routerLink="/register" class="text-info"> Register Here </a></span></div> |
+        <div style="margin-left: 1rem;"> Need help? <span><a class="text-info"
+              href="https://youtu.be/8CTsfsM_Mlc?si=vQAxRJgBO0R5X0JC"> Watch
+              Demo </a></span></div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+<!-- footer -->
+
+<!-- <footer class="bg-dark text-center text-white my-5">
+
+  <div class="container p-4 pb-0">
+
+      <section class="mb-4">
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-facebook-f"></i></a>
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-twitter"></i></a>
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-google"></i></a>
+
+ 
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-instagram"></i></a>
+
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-linkedin-in"></i></a>
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-github"></i></a>
+      </section>
+ 
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+
+      <a class="navbar-brand " href="#">
+          © <img src="https://www.hsbc.co.in/content/dam/hsbc/in/images/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="Logo"
+              style="height: 1rem;   margin-left: 0rem;"
+              class="d-inline-block align-text-top">
+
+      </a>
+      <a class="text-white" href="https://mdbootstrap.com/">CUSTOMER BANK</a>
+  </div>
+
+</footer> -->

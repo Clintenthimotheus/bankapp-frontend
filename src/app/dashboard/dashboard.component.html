@@ -1,0 +1,224 @@
+<app-delete-acno [deleteAcno]="acno"  (onCancel)="cancelDeleteConfirm()" (onDelete)="deleteFromParent()"></app-delete-acno>
+
+<div *ngIf="deleteSuccessMsg">
+    <h1 class="text-center text-success border m-5">{{deleteSuccessMsg}}</h1>
+</div>
+
+<div *ngIf="!deleteConfirmStatus">
+
+    <nav class="navbar navbar-expand-lg " style="background-color: white;">
+        <div class="container-fluid">
+
+            <a class="navbar-brand " routerLink="/dashboard">
+                <img src="https://www.hsbc.co.in/content/dam/hsbc/in/images/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="Logo"
+                    style="height: 4rem;   margin-left: 4rem;"
+                    class="d-inline-block align-text-top">
+
+            </a>
+
+            
+            <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto me-5 ">
+
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-info dropdown-toggle me-5" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a (click)=" getBalance()" class="dropdown-item" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"><i
+                                        class="fa-solid fa-money-check-dollar fa-fade me-2 text-info"
+                                        type="button"></i>Balance
+                                    Enquiry</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+                                        class="fa-solid fa-money-bill-transfer fa-fade me-2 text-info"></i>Fund
+                                    Transfer</a>
+                            </li>
+                            <li><a routerLink="/transactions" class="dropdown-item" href="#"><i
+                                        class="fa-solid fa-note-sticky fa-fade me-2 text-info"></i>Transaction
+                                    History</a>
+                            </li>
+                            <li><a class="dropdown-item" (click)="deleteAccount()"><i
+                                        class="fa-solid fa-trash fa-fade me-2 text-info"></i>Remove Account</a></li>
+                            <li><a class="dropdown-item" (click)="logout()"><i
+                                        class="fa-solid fa-right-from-bracket fa-fade me-2 text-info"></i>Logout</a>
+                            </li>
+                            <div class="container text-center"></div>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div *ngIf="logoutSuccess" class="container text-center mt-5 p-5">
+        <h1>Under Proccessing</h1>
+    </div>
+
+    <!-- modal -->
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Fund Transfer</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" [formGroup]="FundTransferForm">
+                        <!-- floating label -->
+                        <div class="form-floating mb-3">
+                            <input name="creditAcno" formControlName="creditAcno" type="text" class="form-control"
+                                id="floatingInput1" placeholder="Credit Account Number">
+                            <label for="floatingInput1">Credit Account Number</label>
+                            <div *ngIf="this.FundTransferForm.get('creditAcno')?.errors&&this.FundTransferForm.get('creditAcno')?.touched"
+                                class="text-danger">*Invalid Account Number</div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input name="amount" formControlName="amount" type="text" class="form-control"
+                                id="floatingInput" placeholder="Amount">
+                            <label for="floatingInput">Amount</label>
+                            <div *ngIf="this.FundTransferForm.get('amount')?.errors&&this.FundTransferForm.get('amount')?.touched"
+                                class="text-danger">*Invalid Amount</div>
+                        </div>
+                        <div class="form-floating">
+                            <input name="password" formControlName="password" type="password" class="form-control"
+                                id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                            <div *ngIf="this.FundTransferForm.get('password')?.errors&&this.FundTransferForm.get('password')?.touched"
+                                class="text-danger">*Invalid Password</div>
+                        </div>
+                        <!-- //result -->
+                        <div class="text-success fw-bolder text-center my-2">
+                            {{transferSuccess}}
+                        </div>
+                        <div class="text-danger fw-bolder text-center my-2">
+                            {{transferError}}
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" (click)="reset()" class="btn btn-info">Reset</button>
+                            <button type="button" (click)="close()" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" (click)="dashboardForm()" class="btn btn-info">Transfer</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- off canavas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <img height="300px" width="100%" style="border-radius: 2rem;"
+                src="https://i.pinimg.com/originals/37/6c/d7/376cd78f534efc70562acd902db2752c.gif" alt="">
+            <div class="text-center" style="margin-top: 3rem;">
+                <h1>Hey {{user}}</h1>
+                <h3>Your Current Balance is: <span class=" text-success">{{balance}}</span> </h3>
+            </div>
+
+        </div>
+    </div>
+    <!-- Main -->
+
+    <div *ngIf="!logoutSuccess" class="container" style="background-color: rgb(250,251,253);">
+        <div class="row" style="background-color: rgb(250,251,253);">
+            <div class="col-6">
+                <!-- image -->
+                <img class="me-5" style="width: 41rem;"
+                    src="https://develop.hsbc.com/sites/default/files/2022-01/1st%20Animation%20v5.gif" alt="">
+
+            </div>
+            <div class="col-6 p-3">
+                <!-- heading and texts -->
+                <h1>Welcome <span class="text-success">{{user}}</span></h1>
+                <hr>
+
+                <p class="text-align:justify;">Online banking is a digital banking service that allows individuals and
+                    businesses to perform various financial transactions over the internet. It enables users to manage
+                    their
+                    accounts, view balances, review transaction histories, transfer funds between accounts, and
+                    more, without needing to visit a physical bank branch. Online banking platforms are typically
+                    provided
+                    by banks and financial institutions, offering a secure and convenient way to access and control your
+                    finances remotely using a computer, smartphone, or tablet.</p>
+
+                <div class="collapse" id="collapseExample">
+
+                    Online banking is also known as Internet banking or web banking. Security measures, such as
+                    encryption
+                    and
+                    two-factor authentication, are often implemented to ensure the safety of online transactions.
+
+                </div>
+                <button (click)="collapse()" class="btn btn-info" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample">Read
+                    <span *ngIf="!isCollapse">More</span>
+                    <span *ngIf="isCollapse">Less</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-dark text-center text-white my-5">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-google"></i></a>
+
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-instagram"></i></a>
+
+                <!-- Linkedin -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-linkedin-in"></i></a>
+
+                <!-- Github -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-github"></i></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+
+            <a class="navbar-brand " href="#">
+                © <img src="https://www.hsbc.co.in/content/dam/hsbc/in/images/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="Logo"
+                    style="height: 1rem;   margin-left: 0rem;"
+                    class="d-inline-block align-text-top">
+
+            </a>
+            <a class="text-white" href="https://mdbootstrap.com/">CUSTOMER BANK</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</div>

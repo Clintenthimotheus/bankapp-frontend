@@ -1,0 +1,192 @@
+<!-- nav bar -->
+<div class="container-fluid">
+
+  <div class="balackbar">
+    <ul>
+      <li>personal </li> |
+      <li> Retail Business Banking </li> |
+      <li> Business </li> |
+      <li> Asset Management </li> |
+      <li> Global private Banking </li> |
+    </ul>
+    <ul>
+      <li>
+        <i class="fa-solid fa-earth-oceania"></i>
+        English
+      </li>
+      <li routerLink="/register" style="cursor: pointer;">Register</li>
+      <li routerLink="/" class="btn btn-danger" style="
+      height: 3rem;
+      width: 8rem;">Log In</li>
+    </ul>
+  </div>
+
+
+</div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: white;">
+
+  <div class="container-fluid" style="background-color: white;">
+    <a class="navbar-brand " href="#">
+      <img src="https://www.hsbc.co.in/content/dam/hsbc/in/images/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="Logo"
+        class="d-inline-block align-text-top">
+
+    </a>
+    <div class="headrow">
+
+      <div class="sidebar">
+        <ul>
+          <li>Banking</li>
+          <li class="li-2">Cards & Accounts</li>
+        </ul>
+
+      </div>
+      <div class="sidebar">
+        <ul>
+
+          <li>Borrowing</li>
+          <li class="li-2">Home & Personal Loans</li>
+        </ul>
+
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li>Investing</li>
+          <li class="li-2">Wealth & Insurance</li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li>NRI</li>
+          <li class="li-2">NRI services & Transfers</li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li>Offers</li>
+          <li class="li-2">Offers &Rewards</li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li>Online Banking</li>
+          <li class="li-2">Banking made easy</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</nav>
+<!-- center -->
+<!-- register landing page -->
+<div  *ngIf="RegisterSuccess" class="container text-center mt-5">
+  <h1 class="spaceload" >Your Data getting Register..please wait....
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </h1>
+
+
+
+</div>
+<div *ngIf="!RegisterSuccess" class="container-fluid ">
+  <div class="row">
+    <div class="col-6">
+      <img class="imghsbc" src="https://www.hsbc.co.in/content/dam/hsbc/in/images/01_HSBC_MASTERBRAND_LOGO_RGB.svg"
+        alt="">
+      <div class="hsbccontent">HSBC's reputation as a global financial powerhouse, its wide range of services, and its
+        focus on international markets make it a prominent player in the banking and finance industry. Please note that
+        specific details about HSBC's services, products, or recent developments may have changed since my last update
+        in January 2022</div>
+    </div>
+    <div class="col-6" style="padding: 2rem 5rem 0rem 9rem">
+      <div class="container">
+        <div class="row">
+          <h2 class="text-center" style="font-weight: 800;">Log In</h2>
+          <form (ngSubmit)="register()" [formGroup]=" registerForm" style="margin-top: 3rem;">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">ACCOUNT NUMBER</label>
+              <input name="acno" formControlName="acno" type="text" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+              <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched"
+                class="text-danger">*Invalid Account number.</div>
+
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">USER NAME</label>
+              <input type="name" name="username" formControlName="username" class="form-control" id="exampleInputname"
+                aria-describedby="name">
+              <div *ngIf="this.registerForm.get('username')?.errors&&this.registerForm.get('username')?.touched"
+                class="text-danger">*Invalid Username</div>
+
+            </div>
+            <div>
+              <label for="inputPassword5" class="form-label">PASSWORD</label>
+              <input name="password" formControlName="password" type="password" id="inputPassword5" class="form-control"
+                aria-describedby="passwordHelpBlock">
+              <div *ngIf="this.registerForm.get('password')?.errors&&this.registerForm.get('password')?.touched"
+                class="text-danger">
+                Your password must be 8-20 characters long, contain letters and numbers, and must not
+                contain spaces,
+                special characters, or emoji.
+              </div>
+            </div>
+            <div class="text-center text-danger">
+              <div>{{RegisterError}}</div>
+
+            </div>
+            <button type="submit" class="btn btn-outline-primary" >Register</button>
+            <!-- <button type="button" class="btn btn-outline-info " routerLink="/">Back</button> -->
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- footer -->
+<!-- <footer class="bg-dark text-center text-white my-5">
+
+  <div class="container p-4 pb-0">
+
+      <section class="mb-4">
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-facebook-f"></i></a>
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-twitter"></i></a>
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-google"></i></a>
+
+ 
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-instagram"></i></a>
+
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-linkedin-in"></i></a>
+
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                  class="fab fa-github"></i></a>
+      </section>
+ 
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+
+      <a class="navbar-brand " href="#">
+          © <img src="https://www.hsbc.co.in/content/dam/hsbc/in/images/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="Logo"
+              style="height: 1rem;   margin-left: 0rem;"
+              class="d-inline-block align-text-top">
+
+      </a>
+      <a class="text-white" href="https://mdbootstrap.com/">CUSTOMER BANK</a>
+  </div>
+
+</footer> -->

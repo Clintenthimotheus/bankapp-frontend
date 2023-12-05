@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Josefin+Sans&family=Playfair+Display&family=Playfair+Display+SC&family=Victor+Mono:wght@100&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 900;
+}

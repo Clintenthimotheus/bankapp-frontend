@@ -1,0 +1,60 @@
+                          BANK APP
+                  ---------------------------
+
+                  1.Create a new project  - ng new bankapp-frontend
+                  2. cd bankapp-frontend
+                  3.code .
+                  4.run a project - ng s -o
+                  5.clear the code in app.component.html
+                  6.Install 3rd party libraries
+                     i)Bootstrap - copy and paste Bootstrap link in Index.html
+                     ii)fontawesome - copy and paste cdnjs link in Index.html
+                     iii)google fonts-copy and paste google fronts link in style.css
+
+                7.Create component
+                  -> Register - ng g c register
+                  ->login - ng g c login
+                  ->Dashboard - ng g c dashboard
+                  ->Transactions - ng g c transactions
+                  ->PageNotFound - ng g c pageNotFound
+                
+                8.Path setup
+                      Setup path for each component in app-routing.module.ts
+               
+               9.Use router-outlet in app.component.html
+               10.page Designing
+
+               11.Reactive forms
+                 Reactive forms provide a model-driven approach to handling forms
+                 inputs whose values change over time.
+                 Reactive forms are built around observable streams,where form inputs and values are provided as
+                 streams of input values ,which can be accessed synchronously
+
+                 12.To use reactive form controls, import ReactiveFormsModule from the @angular/forms package and add it to your NgModule's imports array.
+                  import { ReactiveFormsModule } from '@angular/forms';
+
+                 @NgModule({
+
+                           imports: [
+                          // other imports ...
+                         ReactiveFormsModule
+                    ],
+                       })
+                    export class AppModule { }
+                   ->FormGroup - ts
+                   ->FormArray -ts
+                   ->FormControl -html
+
+              ->FormBuilder
+
+              The FormBuilder provides syntactic sugar that shortens creating instances of 
+              a FormControl, FormGroup, or FormArray.
+              It reduces the amount of boilerplate needed to build complex forms.
+
+
+
+              ->FormGroup-ts
+
+              Constructs a new FormGroup instance.
+               Accepts a single generic argument,
+               which is an object containing all the keys and corresponding inner control types.

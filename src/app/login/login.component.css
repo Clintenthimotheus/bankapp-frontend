@@ -1,0 +1,119 @@
+*{
+   
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+
+button{
+    margin-left: 10rem;
+    margin-top: 2rem;
+    height: 3rem;
+    width: 10rem;
+    border-radius: 2rem;
+}
+.register{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+a{
+    text-decoration: none;
+    color: white; 
+}
+.register div{
+    margin-right: 1rem;
+    font-weight: 100;
+    font-family: math;
+}
+
+
+.text{
+    font-size: 29px;
+     font-weight: 900;
+    color: white;
+}
+/* navbar */
+.balackbar{
+    background-color: black;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+.balackbar ul{
+    display: flex;
+gap: 33px;
+}
+ul > li
+{
+    list-style-type: none;
+    padding: 5px;
+    
+}
+.li-1{
+    color: black;
+}
+
+.navbar-brand img{
+    height: 6rem;
+    width: 17rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.headrow{
+    display: flex;
+    font-size: 17px;
+    gap: 10px;
+}
+.li-2{
+    font-weight: 100;
+    color: rgb(55, 56, 57);
+}
+
+.sidebar {
+    width: 199px; /* Adjust width as needed */
+    background-color: #f4f4f4; /* Light color for the sidebar */
+    border-right: 1px solid #ccc; /* Adding a border for separation */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+  }
+  #backimg{
+    background-image: url(https://www.centralbanking.com/sites/default/files/styles/landscape_750_463/public/import/IMG/874/331874/hsbc-hq-canary-wharf-day-2015.jpeg?h=b4c96521&itok=iH6Dfn2_);
+    height: 35rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+	position: relative;
+	z-index: 0;
+    box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85);
+  }
+  #backimg:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: radial-gradient(ellipse at left bottom, rgb(14, 14, 16) 0%,rgba(37, 35, 41, 0.9) 59%, rgba(46, 47, 54, 0.9) 100%);
+	box-shadow: 0 -20px 150px -20px rgba(49, 45, 45, 0.5);
+}
+  #inputhead{
+    padding: 3rem 2rem 1rem 1rem;
+        z-index: 1;
+  }
+  .form-label{
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .form-control{
+    height: 2.5rem;
+  }

@@ -1,0 +1,111 @@
+<!-- nav bar -->
+<nav class="navbar navbar-expand-lg " style="background-color: white;">
+    <div class="container-fluid">
+
+        <a class="navbar-brand " routerLink="/dashboard">
+            <img src="https://www.hsbc.co.in/content/dam/hsbc/in/images/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="Logo"
+                style="height: 4rem; margin-left: 4rem; " class="d-inline-block align-text-top">
+
+        </a>
+     
+    </div>
+</nav>
+<!-- main-content -->
+<div class="container">
+    <div class="row">
+        <h2 class="text-center my-4 p-4 text-success ">Transaction History</h2>
+
+
+        <div class="col-6 mt-3">
+            <input [(ngModel)]="searchkey" type="text" class="form-control" placeholder="search">
+        </div>
+        <div class="col-6 mt-3">
+            <button (click)=" generatePdf()" style="float:right;" class="btn btn-info">Export as PDF</button>
+        </div>
+    </div>
+    <div class="row-table m-5" >
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">From Account</th>
+                    <th scope="col">To Account</th>
+                    <th scope="col">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-active" *ngFor="let trans of transactions | search:searchkey:'type'; let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{trans.type}}</td>
+                    <td>{{trans.fromAcno}}</td>
+                    <td>{{trans.toAcno}}</td>
+                    <td>{{trans.amount}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"><button routerLink="/dashboard" type="button" class="btn btn-dark">BACK</button></div>
+        <div class="col-4"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer -->
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-facebook-f"></i></a>
+
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-instagram"></i></a>
+
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
+
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+        </section>
+        <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+
+        <a class="navbar-brand " href="#">
+            © <img src="https://th.bing.com/th/id/OIP.S155CUngqHUMK98rw-hdDgHaHh?pid=ImgDet&rs=1" alt="Logo"
+                style="height: 1rem;     border-radius: 50%; width: 1rem;" class="d-inline-block align-text-top">
+
+        </a>
+        <a class="text-white" href="https://mdbootstrap.com/">CUSTOMER BANK</a>
+    </div>
+    <!-- Copyright -->
+</footer>
